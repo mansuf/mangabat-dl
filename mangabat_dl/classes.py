@@ -444,37 +444,36 @@ class Manga:
                     replace=replace,
                     **requests_params
                 )
-            return
-
-        for chap in self.chapters:
-            if chap.chapter >= start_chapter:
-                if end_chapter is not None:
-                    if chap.chapter <= end_chapter:
+        else:
+            for chap in self.chapters:
+                if chap.chapter >= start_chapter:
+                    if end_chapter is not None:
+                        if chap.chapter <= end_chapter:
+                            chap.download(
+                                folder=folder,
+                                progress_bar=progress_bar,
+                                replace=replace,
+                                **requests_params
+                            )
+                        else:
+                            dl_log.warn('Ignoring chapter %s as param "end_chapter" is %s' % (
+                                chap.chapter,
+                                end_chapter
+                            ), extra={"type": 'DOWNLOADER'})
+                            continue
+                    else:
                         chap.download(
                             folder=folder,
                             progress_bar=progress_bar,
                             replace=replace,
                             **requests_params
                         )
-                    else:
-                        dl_log.warn('Ignoring chapter %s as param "end_chapter" is %s' % (
-                            chap.chapter,
-                            end_chapter
-                        ), extra={"type": 'DOWNLOADER'})
-                        continue
                 else:
-                    chap.download(
-                        folder=folder,
-                        progress_bar=progress_bar,
-                        replace=replace,
-                        **requests_params
-                    )
-            else:
-                dl_log.warn('Ignoring chapter %s as param "start_chapter" is %s' % (
-                    chap.chapter,
-                    start_chapter
-                ), extra={"type": 'DOWNLOADER'})
-                continue
+                    dl_log.warn('Ignoring chapter %s as param "start_chapter" is %s' % (
+                        chap.chapter,
+                        start_chapter
+                    ), extra={"type": 'DOWNLOADER'})
+                    continue
 
         # Base path
         if folder is not None:
