@@ -1,0 +1,15 @@
+# Python bytes cache
+*__pycache__
+
+# vscode config
+.vscode
+
+# Some internal tests
+test.py
+test2.py
+tox.ini
+
+# Compiled things
+build
+dist
+*.spec
