@@ -2,7 +2,7 @@ from typing import Any, Generator, List
 from .fetcher import _search, _fetch
 from .classes import Manga, MangaResult
 
-__version__ = 'v0.0.1'
+__version__ = 'v0.0.11'
 
 def download_manga(mangabat_url, **params) -> Manga:
     """
