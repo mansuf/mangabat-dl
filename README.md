@@ -2,6 +2,10 @@
 
 Download manga from mangabat with python
 
+## Note: Unmaintained project
+
+The website code has changed (a little bit), because of this mangabat-dl are not working or broken. I cannot guarantee that this will be fixed, because this project is abandoned by myself. Go ahead and take a fork if you still want to maintain it.
+
 ## Minimum Python version
 
 ```
